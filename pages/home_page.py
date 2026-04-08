@@ -13,3 +13,6 @@ class HomePage(BasePage):
 
     def click_search_button(self):
         self._header._search_button.click()
+
+    def get_value_in_input_field(self):
+        return self._header._search_catalog.get_value()

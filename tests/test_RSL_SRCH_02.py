@@ -4,16 +4,16 @@ from pages.home_page import HomePage
 from pages.search_page import SearchPage
 
 
-@allure.title("Поиск по названию книги")
-def test_RSL_SRCH_01(page: Page):
+@allure.title("Поиск по  фамилии автора")
+def test_RSL_SRCH_02(page: Page):
     home_page = HomePage(page)
     home_page.open()
-    document_title = "Война и мир"
+    author_surname = "Лев Толстой"
 
-    with (allure.step("1.Ввести в поле поиска «Поиск по электронному каталогу» текст «Война и мир»")):
-        home_page.fill_search_field(document_title)
+    with allure.step("1.Ввести в поле поиска «Поиск по электронному каталогу» текст «Лев Толстой»"):
+        home_page.fill_search_field(author_surname)
 
-        assert home_page.get_value_in_input_field() == document_title, "В поле поиска не отображается введенный текст"
+        assert home_page.get_value_in_input_field() == author_surname
 
     with allure.step("2. Нажать кнопку поиска"):
         search_button_locator = home_page._header._search_button.locator
@@ -28,4 +28,4 @@ def test_RSL_SRCH_01(page: Page):
 
         search_page._search_content.wait_for_search_results()
 
-        assert search_page._search_content.contains_document_text(document_title)
+        assert search_page._search_content.contains_document_text(author_surname)
