@@ -10,6 +10,6 @@ class SearchCatalog(BaseControl):
     def fill_text(self, text: str):
         self.locator.fill(text)
 
-    """МЕтод для получение текущего значения"""
+    """МЕтод для получение текущего значения в поле ввода"""
     def get_value(self):
         return self.locator.input_value()
