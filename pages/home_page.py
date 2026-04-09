@@ -16,9 +16,6 @@ class HomePage(BasePage):
     def fill_search_field(self, text: str):
         self._header._search_catalog.fill_text(text)
 
-    def click_search_button(self):
-        self._header._search_button.click()
-
     def get_value_in_input_field(self):
         return self._header._search_catalog.get_value()
 
@@ -31,3 +28,6 @@ class HomePage(BasePage):
 
     def click_button_menu_by_title(self, title: str):
         self._menu_center.get_button_by_title(title).click()
+
+    def click_button_resonal_account(self):
+        self._header.get_button_resonal_account().click()
