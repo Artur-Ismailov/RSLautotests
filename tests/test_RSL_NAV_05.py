@@ -14,7 +14,7 @@ def test_RSL_NAV_05(page: Page):
     how_join_page = HowJoinPage(page)
     home_page.open()
 
-    with (allure.step("1.Навести курсор на пункт меню «Читателям»")):
+    with allure.step("1.Навести курсор на пункт меню «Читателям»"):
         home_page.hover_over_button_in_menu("Читателям")
 
         expect(home_page.get_dpordown_menu_readers()).to_be_visible(timeout=5000), "Выпадающе меню не отображается"

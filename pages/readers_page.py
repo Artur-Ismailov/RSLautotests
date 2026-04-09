@@ -19,4 +19,4 @@ class ReadersPage(BasePage):
         return self._breadcrumbs.locator("a[rel='Home']")
 
     def click_reader_subsection_by_title(self, title: str):
-        self.get_reader_subsection_elements().locator(f".gridElementIntroWrapperLink:has(.gridElementIntroWrapperTitle:has-text('{title}'))").click()
+        self._reader_content.locator(f".gridElement:has(.gridElementIntroWrapperTitle:has-text('{title}'))").click()
