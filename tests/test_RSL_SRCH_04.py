@@ -10,13 +10,14 @@ def test_RSL_SRCH_04(page: Page):
     home_page.open()
     special_characters = "@#$%^&*"
 
+
     with allure.step("1. Ввести в поле ввода «Поиск по электронному каталогу» последовательность специальных символов «@#$%^&*»"):
         home_page.fill_search_field(special_characters)
 
         assert home_page._header.get_search_catalog().get_value() == special_characters
 
     with allure.step("2. Нажать кнопку поиска"):
-        search_button_locator = home_page._header._search_button.locator
+        search_button_locator = home_page.get_button_search()
 
         new_page = home_page.wait_for_new_tab_from_locator(search_button_locator)
 
@@ -26,6 +27,6 @@ def test_RSL_SRCH_04(page: Page):
 
         search_page = SearchPage(new_page)
 
-        search_page._search_content.wait_for_search_results()
+        search_page.wait_for_search_results()
 
         #assert search_page._search_content.contains_document_text(special_characters)
