@@ -6,12 +6,12 @@ class SearchContent(BaseComponent):
     def __init__(self, page: Page, locator: Locator):
         super().__init__(page, locator)
 
-    """Метод ждет появления хотя бы одного результата поиска внутри wrapper"""
-    def wait_for_search_results(self, timeout: float = 30000):
+    def wait_for_search_results(self, timeout = 10000):
+        """Метод ждет появления хотя бы одного результата поиска внутри wrapper"""
         first_result = self.wrapper.locator(".search-container").first
         first_result.wait_for(state="visible", timeout=timeout)
 
-    """Метод проверяет, есть ли хотя бы один элемент содержащий указанный текст"""
-    def contains_document_text(self, text: str):
-        matching_elements = self.wrapper.get_by_text(text, exact=False)
-        return matching_elements.count() > 0
+    def get_results_count(self):
+        """Возвращает количество элементов, соответствующих внутри wrapper."""
+        results_locator = self.wrapper.locator(".search-container")
+        return results_locator.count()
