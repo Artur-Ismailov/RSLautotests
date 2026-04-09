@@ -18,4 +18,3 @@ class BasePage:
     """Ожидание загрузки новой вкладки"""
     def wait_for_page_load(self, new_page: Page, timeout: int = 30000):
         new_page.wait_for_load_state(timeout=timeout)
-
