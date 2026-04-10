@@ -31,3 +31,24 @@ class HomePage(BasePage):
 
     def click_button_resonal_account(self):
         self._header.get_button_resonal_account().click()
+
+    def hover_over_button_profile_menu(self):
+        self._header.hover_profile_menu()
+
+    def get_dropdown_profile_menu(self):
+        return self._header.get_menu_content_profile_menu()
+
+    def get_usermane_in_button_profile_menu(self):
+        return self._header.get_name_button_profile_menu()
+
+    def get_profile_link_in_dropdown(self):
+        """Метод возвращает локатор пункта Профиль в выпадающем меню"""
+        return self._header.get_profile_link_in_menu()
+
+    def get_logout_link_in_dropdown(self):
+        """Метод возвращает локатор пункта Выйти в выпадающем меню"""
+        return self._header.get_logout_link_in_menu()
+
+    def click_logout_in_dropdown(self):
+        """Метод кликает по кнопке Выйти в выпадающем меню профиля"""
+        self._header.get_logout_link_in_menu().click()
