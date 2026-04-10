@@ -5,7 +5,7 @@ from pages.login_page import LoginPage
 
 
 @allure.title("Авторизация с невалидными учетными данными")
-def test_RSL_PERS_NAV_01(page: Page):
+def test_RSL_PERS_ACC_01(page: Page):
     home_page = HomePage(page)
     login_page = LoginPage(page)
     home_page.open()

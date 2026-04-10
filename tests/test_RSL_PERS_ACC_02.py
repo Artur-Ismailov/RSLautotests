@@ -33,3 +33,6 @@ def test_RSL_PERS_ACC_02(page: Page):
         login_page.click_login_button()
 
         assert "https://www.rsl.ru/" in home_page.url, "URL != 'https://www.rsl.ru/'"
+
+        expect(home_page.get_usermane_in_button_profile_menu()).to_be_visible(timeout=5000)
+        expect(home_page.get_usermane_in_button_profile_menu()).to_have_text("NameTest", timeout=5000)
