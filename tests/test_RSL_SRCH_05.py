@@ -5,7 +5,7 @@ from pages.search_page import SearchPage
 
 
 @allure.title("Поиск по запросу максимальной допустимой длины")
-def test_RSL_SRCH_06(page: Page):
+def test_RSL_SRCH_05(page: Page):
     home_page = HomePage(page)
     home_page.open()
     text = "A" * 256
