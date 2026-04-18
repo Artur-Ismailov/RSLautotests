@@ -14,9 +14,8 @@ def test_RSL_SRCH_03(page: Page):
         new_page = home_page.wait_for_new_tab_from_locator(search_button_locator)
         home_page.wait_for_page_load(new_page)
 
-        assert "https://search.rsl.ru/" in new_page.url
-
         search_page = SearchPage(new_page)
         search_page.wait_for_search_results()
 
+        assert "https://search.rsl.ru/" in search_page.url
         assert search_page.search_results()

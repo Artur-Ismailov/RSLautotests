@@ -15,9 +15,9 @@ def test_RSL_PERS_ACC_01(page: Page):
 
         assert "https://passport.rusneb.ru/auth/realms/RSL/protocol/openid-connect/auth?response_type=code&redirect_uri=https%3A%2F%2Fwww.rsl.ru%2Flogin&client_id=rsl.ru&scope=rsl_udb_profile+openid" in login_page.url
 
-        expect(login_page.get_username_input()).to_be_visible()
-        expect(login_page.get_password_input()).to_be_visible()
-        expect(login_page.get_login_button()).to_be_visible()
+        expect(login_page.get_username_input()).to_be_visible(timeout=5000)
+        expect(login_page.get_password_input()).to_be_visible(timeout=5000)
+        expect(login_page.get_login_button()).to_be_visible(timeout=5000)
 
     with allure.step("2. В поле ввода «Адрес электронной почты или номер читательского билета» ввести «invalid@mail.ru»"):
         login_page.fill_username_input("invalid@mail.ru")
