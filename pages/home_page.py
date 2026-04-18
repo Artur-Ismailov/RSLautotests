@@ -16,8 +16,9 @@ class HomePage(BasePage):
     def fill_search_field(self, text: str):
         self._header._search_catalog.fill_text(text)
 
-    def get_value_in_input_field(self):
-        return self._header._search_catalog.get_value()
+    def get_search_field_locator(self):
+        """Метод возвращает локатор поля поиска"""
+        return self._header._search_catalog.get_locator()
 
     def hover_over_button_in_menu(self, title: str):
         """Метод наводит курсор на элемент по названию"""

@@ -13,13 +13,13 @@ def test_RSL_NAV_02(page: Page):
     with (allure.step("1.Навести курсор на пункт меню «Читателям»")):
         home_page.hover_over_button_in_menu("Читателям")
 
-        expect(home_page.get_dpordown_menu_readers()).to_be_visible(timeout=5000), "Выпадающе меню не отображается"
+        expect(home_page.get_dpordown_menu_readers()).to_be_visible(timeout=5000)
 
     with allure.step("2.Кликнуть на пункт меню «Читателям»"):
         home_page.click_button_menu_by_title("Читателям")
 
         assert "https://www.rsl.ru/ru/4readers/" in readers_page.url
 
-        expect(readers_page.get_page_title_h1()).to_have_text("Читателям", timeout=5000), "Заголовок станицы !='Читателям'"
+        expect(readers_page.get_page_title_h1()).to_have_text("Читателям", timeout=5000)
 
-        expect(readers_page.get_reader_subsection_elements()).to_have_count(14, timeout=5000), "На странице не отображаются 14 подразделов"
+        expect(readers_page.get_reader_subsection_elements()).to_have_count(14, timeout=5000)

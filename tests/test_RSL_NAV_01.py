@@ -11,9 +11,9 @@ def test_RSL_NAV_01(page: Page):
     with (allure.step("1.Навести курсор на пункт меню «Читателям»")):
         home_page.hover_over_button_in_menu("Читателям")
 
-        expect(home_page.get_dpordown_menu_readers()).to_be_visible(timeout=5000), "Выпадающе меню не отображается"
+        expect(home_page.get_dpordown_menu_readers()).to_be_visible(timeout=5000)
 
     with allure.step("2.Убрать курсор с пункта меню «Читателям»"):
         home_page.hover_over_button_in_menu("Профессионалам")
 
-        expect(home_page.get_dpordown_menu_readers()).not_to_be_visible(timeout=5000), "Выпадающее меню отображается"
+        expect(home_page.get_dpordown_menu_readers()).not_to_be_visible(timeout=5000)
